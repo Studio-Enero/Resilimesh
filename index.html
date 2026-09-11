@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VCon — Emergency Mesh When Everything Fails</title>
+  <meta name="description" content="VCon is a screen-based LoRa mesh network that keeps barangays, LGUs, and DRRM teams connected during disasters — no cellular, no internet, no phone required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a href="#top" class="brand">
+        <span class="mark">V</span>
+        <span>VCon<span class="brand-sub">ResiliMesh network</span></span>
+      </a>
+      <nav class="nav">
+        <a href="#problem">Problem</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#system">The system</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#deployments">Deployments</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary nav-cta" href="#contact">Request pilot kit</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#problem">Problem</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#system">The system</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#deployments">Deployments</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" href="#contact">Request pilot kit</a>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="grid-bg"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          <span class="mono-label">LoRa mesh · no internet · no phone · no tower</span>
+        </div>
+        <h1>The mesh that still talks <span class="accent-red">when the network dies.</span></h1>
+        <p class="lead">
+          VCon keeps barangays, LGUs, and DRRM teams connected during typhoons, floods,
+          and earthquakes. A self-healing radio mesh that floods evacuation orders,
+          medical alerts, and supply requests — no cellular signal required.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Request pilot kit</a>
+          <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="v">5-hop</div><div class="k">flooding mesh</div></div>
+          <div class="stat"><div class="v">304+</div><div class="k">chars / packet</div></div>
+          <div class="stat"><div class="v">₱1,040</div><div class="k">~$18 per node</div></div>
+          <div class="stat"><div class="v">72 hr</div><div class="k">battery life</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="section" id="problem">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="num mono-label">01 / Problem</div>
+          <h2>Cellular fails first. Your evacuation order shouldn't.</h2>
+          <p class="lede">
+            In the Philippines, super-typhoons, floods, and earthquakes knock out cell
+            towers and power within the first hour. Upland and coastal barangays are left
+            with no way to call for help or coordinate — the very places that need it most.
+          </p>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card reveal">
+            <div class="idx">01</div>
+            <h3>Towers go down first</h3>
+            <p>Power and backhaul fail in the opening hour of a disaster, silencing every phone in range.</p>
+          </div>
+          <div class="pain-card reveal">
+            <div class="idx">02</div>
+            <h3>Orders buried on phones</h3>
+            <p>A dead phone notification is not an evacuation order. Critical alerts never reach the people who need them.</p>
+          </div>
+          <div class="pain-card reveal">
+            <div class="idx">03</div>
+            <h3>No coverage in the last mile</h3>
+            <p>Remote sitios and coastlines have little or no signal even on a good day — there is no fallback when disaster hits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how-it-works">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="num mono-label">02 / How it works</div>
+          <h2>A self-healing LoRa mesh, not a network.</h2>
+          <p class="lede">
+            Every VCon node is a screen-based radio (ESP32-C3 + LoRa) that floods messages
+            across up to five hops. Command nodes send broadcasts; relay nodes on rooftops
+            extend range; outpost nodes receive and reply.
+          </p>
+        </div>
+
+        <div class="mesh-wrap reveal">
+          <svg viewBox="0 0 800 420" role="img" aria-label="LoRa mesh topology: a command node relays to two relay nodes which reach three outpost nodes">
+            <g stroke="#2563ff" stroke-width="1.4" opacity="0.85" fill="none">
+              <line class="mesh-line" x1="150" y1="210" x2="390" y2="120" />
+              <line class="mesh-line" x1="390" y1="120" x2="390" y2="300" style="animation-delay:.4s" />
+              <line class="mesh-line" x1="390" y1="120" x2="640" y2="70" style="animation-delay:.8s" />
+              <line class="mesh-line" x1="390" y1="300" x2="640" y2="210" style="animation-delay:1.2s" />
+              <line class="mesh-line" x1="390" y1="300" x2="640" y2="350" style="animation-delay:1.6s" />
+            </g>
+            <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#8b98a8" text-anchor="middle">
+              <circle class="mesh-ring" cx="150" cy="210" r="22" fill="none" stroke="#ff1f1f" stroke-width="1.5" />
+              <circle class="mesh-node" cx="150" cy="210" r="9" fill="#ff1f1f" />
+              <text x="150" y="256">COMMAND</text>
+              <text x="150" y="271" font-size="10" fill="#5a6674">barangay hall</text>
+
+              <circle class="mesh-ring" cx="390" cy="120" r="18" fill="none" stroke="#2563ff" stroke-width="1.5" style="animation-delay:.5s" />
+              <circle class="mesh-node" cx="390" cy="120" r="7" fill="#2563ff" style="animation-delay:.5s" />
+              <text x="390" y="80">RELAY 1</text>
+
+              <circle class="mesh-ring" cx="390" cy="300" r="18" fill="none" stroke="#2563ff" stroke-width="1.5" style="animation-delay:1s" />
+              <circle class="mesh-node" cx="390" cy="300" r="7" fill="#2563ff" style="animation-delay:1s" />
+              <text x="390" y="350">RELAY 2</text>
+
+              <circle class="mesh-node" cx="640" cy="70" r="6" fill="#5b8cff" />
+              <text x="640" y="50">OUTPOST</text>
+              <circle class="mesh-node" cx="640" cy="210" r="6" fill="#5b8cff" style="animation-delay:1.2s" />
+              <text x="640" y="190">OUTPOST</text>
+              <circle class="mesh-node" cx="640" cy="350" r="6" fill="#5b8cff" style="animation-delay:1.6s" />
+              <text x="640" y="386">OUTPOST</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature reveal">
+            <div class="tag">Mesh</div>
+            <h3>Real 5-hop flooding</h3>
+            <p>Every frame is relayed with (src, seq) de-duplication and jittered re-transmission. Broadcast to everyone or unicast to a single node.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="tag">Codec</div>
+            <h3>6-bit emergency codec</h3>
+            <p>Up to 304 symbols per packet — 608 with letter-pair shorthand. Phrase tokens compress common alerts like "evacuate immediately" ~10×.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="tag">Input</div>
+            <h3>Screen + Nokia keypad</h3>
+            <p>OLED display and rotary encoder. Fire a preset — SOS, EVAC, MEDICAL, INFO — or type any message with a Nokia-style keypad.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="tag">Power</div>
+            <h3>72-hour battery</h3>
+            <p>Continuous receive by default so nothing is missed; opt-in duty cycling and an AP-off field mode stretch a single charge for days.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="tag">On-device</div>
+            <h3>Inbox + weather</h3>
+            <p>Persistent inbox, a two-stage message viewer, city-code filtering, and live weather — all readable on the node screen.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="tag">Security</div>
+            <h3>Encrypted by default</h3>
+            <p>Per-municipality PSK (AES-256-CTR) with 8-byte message authentication. Nodes without the key can't decrypt or inject.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SYSTEM ============ -->
+    <section class="section" id="system">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="num mono-label">03 / The system</div>
+          <h2>Three pieces. One resilient network.</h2>
+          <p class="lede">
+            A rugged field node, a war-room dashboard for the DRRM office, and a public
+            kiosk for schools and city hall — all speaking the same mesh.
+          </p>
+        </div>
+        <div class="system-grid">
+          <div class="sys-card reveal">
+            <div class="glyph">◉</div>
+            <h3>VCon Node</h3>
+            <div class="role">The radio in every barangay</div>
+            <p>Screen-based node: OLED display + rotary encoder + buzzer. No phone, no app, no training required to read or send.</p>
+            <ul>
+              <li>Presets: SOS / EVAC / MEDICAL / INFO</li>
+              <li>Nokia-keypad free-text compose</li>
+              <li>Persistent inbox + two-stage viewer</li>
+              <li>City-code filter + live weather</li>
+              <li>Battery saving + AP-off field mode</li>
+            </ul>
+            <div class="foot">~₱1,040 (~$18) per node</div>
+          </div>
+          <div class="sys-card reveal">
+            <div class="glyph">▦</div>
+            <h3>Command Center</h3>
+            <div class="role">War-room dashboard for the DRRM office</div>
+            <p>A web dashboard that runs on any laptop connected to a node over USB. Turns the mesh into a live command console.</p>
+            <ul>
+              <li>Live tactical map with node pinning</li>
+              <li>Broadcast to ALL or a specific node</li>
+              <li>YELLOW / ORANGE / RED alert phases</li>
+              <li>Incident &amp; responder management</li>
+              <li>Scheduled + RSS-feed broadcasts, serial terminal</li>
+            </ul>
+            <div class="foot">Node.js + serial bridge</div>
+          </div>
+          <div class="sys-card reveal">
+            <div class="glyph">▤</div>
+            <h3>School Bulletin</h3>
+            <div class="role">The public announcement kiosk</div>
+            <p>A read-only big-screen kiosk for schools and city hall. Mesh messages cycle as big, branded announcement cards.</p>
+            <ul>
+              <li>Rotating cards, URGENT red on keywords</li>
+              <li>Dot-matrix marquee mode</li>
+              <li>News ticker + pinned notices</li>
+              <li>Live Leaflet map with pulsing markers</li>
+              <li>5 themes + sender filter</li>
+            </ul>
+            <div class="foot">Kiosk + operator panel</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section gallery" id="gallery">
+      <div class="gallery-bg" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="num mono-label">04 / Gallery</div>
+          <h2>See it in action.</h2>
+          <p class="lede">
+            The Command Center war-room dashboard and the School Bulletin kiosk, running
+            live on the mesh. Click any screen to enlarge.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="shot reveal">
+            <img src="images/commandcenter.jpg" alt="ResiliMesh Command Center — live tactical map, message log, and broadcast controls" loading="lazy" />
+            <figcaption>
+              <span class="shot-tag">Command Center</span>
+              <span class="shot-cap">The war-room dashboard for the DRRM office.</span>
+            </figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <img src="images/bulletin.jpg" alt="ResiliMesh School Bulletin — fullscreen announcement kiosk" loading="lazy" />
+            <figcaption>
+              <span class="shot-tag">School Bulletin</span>
+              <span class="shot-cap">The public announcement kiosk for schools and city hall.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEPLOYMENTS ============ -->
+    <section class="section" id="deployments">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="num mono-label">05 / Deployments</div>
+          <h2>Field-tested. Built for the next super-typhoon.</h2>
+          <p class="lede">
+            We start with a 15-node pilot across Surigao del Norte and Eastern Samar,
+            then scale to full municipal rollouts.
+          </p>
+        </div>
+        <div class="deploy-grid">
+          <div class="deploy-card live reveal">
+            <span class="status"><span class="pulse-dot"></span> Phase 1 — Live pilot</span>
+            <h3>Surigao del Norte + Eastern Samar</h3>
+            <div class="loc">Coastal barangay + upland barangay deployment</div>
+            <p>15 nodes: 1 command, 4 relay, 10 outpost. Partnership with the DRRM office and the DICT regional office.</p>
+            <div class="deploy-stats">
+              <div class="d"><span class="v">15</span><span class="k">nodes</span></div>
+              <div class="d"><span class="v">3</span><span class="k">hops tested</span></div>
+              <div class="d"><span class="v">2</span><span class="k">LGUs</span></div>
+            </div>
+          </div>
+          <div class="deploy-card planned reveal">
+            <span class="status">Phase 2 — Planned</span>
+            <h3>Municipal rollout</h3>
+            <div class="loc">50–100 nodes per municipality</div>
+            <p>NDRRMC Red/Orange/Yellow warning integration, plus a 2-hour training session for barangay tanod and BDRRMC volunteers.</p>
+            <div class="deploy-stats">
+              <div class="d"><span class="v">50–100</span><span class="k">nodes / LGU</span></div>
+              <div class="d"><span class="v">NDRRMC</span><span class="k">warning feed</span></div>
+              <div class="d"><span class="v">2 hr</span><span class="k">training</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="roadmap reveal">
+          <h3>Milestone roadmap</h3>
+          <div class="timeline">
+            <div class="tl-item done"><div class="when">Delivered</div><div class="what">Real 5-hop flooding mesh + 6-bit codec on 10 nodes</div></div>
+            <div class="tl-item done"><div class="when">Delivered</div><div class="what">Screen-based node: OLED + rotary + Nokia-keypad texting</div></div>
+            <div class="tl-item done"><div class="when">Delivered</div><div class="what">Command Center dashboard + School Bulletin kiosk</div></div>
+            <div class="tl-item"><div class="when">Month 6</div><div class="what">15-node field pilot in Surigao del Norte &amp; Eastern Samar</div></div>
+            <div class="tl-item"><div class="when">Month 12</div><div class="what">100-node municipal deployment, NTC approval</div></div>
+            <div class="tl-item"><div class="when">Month 18</div><div class="what">Revenue from 2 LGU contracts</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="num mono-label">06 / Contact</div>
+          <h2>Deploy VCon in your barangay.</h2>
+          <p class="lede">
+            Every barangay deserves a resilience kit. Request a pilot kit and we'll
+            ship 10 VCon nodes that keep working when everything else stops.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="funding reveal">
+            <div class="mono-label">Pre-seed funding ask</div>
+            <div class="total">₱5M <small>total</small></div>
+            <div class="fund-row"><span class="l">200 field nodes (hardware + assembly)</span><span>₱2.0M</span></div>
+            <div class="fund-row"><span class="l">Firmware, codec &amp; apps</span><span>₱1.2M</span></div>
+            <div class="fund-row"><span class="l">Field pilot &amp; DRRM training</span><span>₱0.8M</span></div>
+            <div class="fund-row"><span class="l">NTC certification &amp; compliance</span><span>₱0.5M</span></div>
+            <div class="fund-row"><span class="l">Contingency</span><span>₱0.5M</span></div>
+          </div>
+
+          <div class="form-card reveal">
+            <h3>Request a pilot kit</h3>
+            <p class="sub">Tell us where you're deploying, and we'll be in touch.</p>
+            <form id="pilotForm">
+              <div class="field">
+                <label for="type">Inquiry type</label>
+                <select id="type" name="type" required>
+                  <option value="">Select inquiry type</option>
+                  <option value="lgu">LGU / DRRM office</option>
+                  <option value="school">School</option>
+                  <option value="ngo">NGO / responder</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="org">Organization</label>
+                <input id="org" name="organization" type="text" placeholder="Barangay / LGU / NGO" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Where would you deploy VCon?"></textarea>
+              </div>
+              <button class="btn btn-red" type="submit">Submit request</button>
+              <div class="form-success" id="formSuccess">✓ Request received. A static demo — wire this form to your email or a backend to go live.</div>
+              <p class="form-note">Field transmission requires NTC frequency approval for the Philippines.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="#top" class="brand"><span class="mark">V</span><span>VCon<span class="brand-sub">ResiliMesh network</span></span></a>
+      <p class="footer-note">
+        Built on the ResiliMesh stack — an ESP32-C3 + LoRa emergency mesh for Philippine
+        disaster response. Screen-based nodes, a Command Center dashboard, and a School
+        Bulletin kiosk. © <span id="year"></span>.
+      </p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <img src="" alt="" id="lbImg" />
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+
