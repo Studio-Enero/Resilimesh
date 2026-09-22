@@ -303,7 +303,7 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
 }
 .audiences .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-.chip { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text); }
+.chip { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text); background: var(--bg-2); }
 .scale-note { color: var(--muted); font-size: 13.5px; font-weight: 300; margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--border-soft); }
 .social { display: flex; gap: 18px; align-items: center; }
 .social a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
